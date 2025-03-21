@@ -1,0 +1,154 @@
+:root {
+  --vscode-background: var(--vscode-editor-background);
+  --vscode-foreground: var(--vscode-editor-foreground);
+  --chat-border: #333;
+  --message-bg-ai: #2d2d2d;
+  --message-bg-user: #1e1e1e;
+}
+
+body { 
+  font-family: var(--vscode-font-family); 
+  margin: 0; 
+  padding: 10px; 
+  color: var(--vscode-foreground);
+  background: var(--vscode-background);
+}
+
+.chat-container { 
+  display: flex; 
+  flex-direction: column; 
+  height: 100vh; 
+}
+
+.chat-output { 
+  flex: 1; 
+  overflow-y: auto; 
+  margin-bottom: 10px; 
+  padding: 20px;
+}
+
+.message { 
+  margin: 8px 0; 
+  padding: 12px 16px; 
+  border-radius: 8px;
+  max-width: 85%;
+  word-wrap: break-word;
+}
+
+.user-message { 
+  background: var(--message-bg-user);
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+.assistant-message { 
+  background: var(--message-bg-ai);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.code-block { 
+  position: relative; 
+  margin: 8px 0; 
+}
+
+.code-block pre { 
+  margin: 0; 
+  padding: 12px; 
+  background: var(--vscode-editor-background); 
+  border-radius: 4px; 
+  overflow-x: auto; 
+}
+
+.code-actions { 
+  position: absolute; 
+  top: 4px; 
+  right: 4px; 
+}
+
+.code-actions button { 
+  margin-left: 4px; 
+  padding: 4px 8px; 
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-container { 
+  display: flex; 
+  padding: 16px;
+  gap: 8px; 
+  border-top: 1px solid var(--chat-border);
+}
+
+#chat-input { 
+  flex: 1; 
+  min-height: 60px; 
+  resize: vertical; 
+  padding: 8px;
+  background: var(--message-bg-user);
+  color: var(--vscode-foreground);
+  border: 1px solid var(--chat-border);
+  border-radius: 4px;
+}
+
+#send-btn {
+  padding: 8px 16px;
+  background: #0078d4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#send-btn:hover {
+  background: #106ebe;
+}
+
+.file-suggestions-container {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  background: var(--vscode-dropdown-background);
+  border: 1px solid var(--vscode-dropdown-border);
+  border-radius: 4px;
+  display: none;
+  z-index: 1000;
+}
+
+.file-suggestion {
+  padding: 8px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-name {
+  font-weight: bold;
+}
+
+.file-path {
+  font-size: 0.9em;
+  opacity: 0.7;
+}
+
+.file-suggestion:hover {
+  background: var(--vscode-list-hoverBackground);
+}
+
+.file-icon {
+  width: 16px;
+  height: 16px;
+}

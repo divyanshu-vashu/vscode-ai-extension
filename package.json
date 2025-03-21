@@ -1,0 +1,92 @@
+{
+  "name": "aicody",
+  "displayName": "AI Chat for VS Code",
+  "description": "An AI-powered chat assistant inside VS Code using Gemini API.",
+  "version": "0.1.0",
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/aicody"
+  },
+  "engines": {
+    "vscode": "^1.97.0"
+  },
+  "categories": [
+    "AI Assistant",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:chatCursor.showSidebar"
+  ],
+  "main": "./out/extension.js",
+  "icon": "assets/aicody.png",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chatCursor.showSidebar",
+        "title": "Open AI Chat",
+        "icon": {
+          "light": "assets/aicody.png",
+          "dark": "assets/aicody.png"
+        }
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "ai-chat",
+          "title": "AI Chat",
+          "icon": "assets/aicody.png"
+        }
+      ]
+    },
+    "views": {
+      "ai-chat": [
+        {
+          "id": "aiChatView",
+          "name": "AI Chat",
+          "type": "webview",
+          "icon": "assets/aicody.png"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "chatCursor.showSidebar",
+          "when": "view == aiChatView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "tsc -p ./tsconfig.json",
+    "compile": "tsc -p ./tsconfig.json",
+    "watch": "tsc -w -p ./tsconfig.json",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "pretest": "tsc -p ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.13.9",
+    "@types/vscode": "^1.97.0",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.21.0",
+    "glob": "^11.0.1",
+    "mocha": "^11.1.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.7.3",
+    "vsce": "^2.15.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.23.0",
+    "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
+    "openai": "^4.86.2"
+  }
+}
