@@ -1,3 +1,4 @@
+<img width="1390" height="744" alt="Screenshot 2025-07-12 at 4 07 33 PM" src="https://github.com/user-attachments/assets/25481fcf-6ddd-4a04-a2d7-efae89ea4a75" />
  
 
 i want to build vs code chat extension which will have feature 
